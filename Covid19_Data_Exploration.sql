@@ -140,11 +140,11 @@ WHERE
 
 # Total Vaccinations across different countries
 SELECT 
-	cd.continent, 
+    cd.continent, 
     cd.location, 
     cd.date, 
     cv.new_vaccinations,
-	SUM(cv.new_vaccinations) OVER (PARTITION BY cd.location ORDER BY cd.location, cd.date) as total_vaccinations
+    SUM(cv.new_vaccinations) OVER (PARTITION BY cd.location ORDER BY cd.location, cd.date) as total_vaccinations
 FROM 
 	coviddeaths cd
 JOIN 
@@ -171,11 +171,3 @@ WHERE
     cd.continent != ''
 GROUP BY cd.location , cd.population
 ORDER BY 1;
-
-
-
-    
-
-
-
-
